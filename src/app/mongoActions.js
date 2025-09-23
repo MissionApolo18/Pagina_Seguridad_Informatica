@@ -1,11 +1,9 @@
 "use server";
-
 const { MongoClient } = require("mongodb");
 
 //String de conexion, nombre de base de datos y coleccion
-const uri =
-    "mongodb+srv://dominics4n:AlvvaysVVaiting@alvvays.jr2y0ln.mongodb.net/?retryWrites=true&w=majority&appName=Alvvays";
-const dbName = "WhenLightningStrikes";
+const uri =process.env.MONGO_URL;
+const dbName = process.env.MONGO_DBNAME;
 const collectionName = "users";
 
 export async function NewUser(formdata) {
