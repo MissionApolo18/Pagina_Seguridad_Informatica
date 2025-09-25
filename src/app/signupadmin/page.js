@@ -9,9 +9,12 @@ export async function nuevoregistro(rawdata){
     if(signin){
         h2objetivo.innerText = "Registro Exitoso";
         retorno();
-    }
-    else{
+    } else if (signin=="user"){
         h2objetivo.innerText = "El usuario ya existe";
+    } else if (signin=="password") {
+        h2objetivo.innerText = "La contraseña no cumple con tener entre 8 y 10 caracteres, con letras, números y símbolos";
+    } else {
+        h2objetivo.innerText = "Error en el registro"
     }
 }
 

@@ -16,6 +16,11 @@ export async function hashwrite(rawformdata) {
         const saltRounds = 10;
         //Plain Password del form
         let plainpassword = rawformdata.get("password");
+        //Implementación de la validación
+        if(!validarPass(plainpassword)){
+            console.error("La contraseña no cumple los requisitos");
+            return(false);
+        }
         let rol = false;
         let userdata;
         if(rawformdata.get("Admin")){
@@ -88,4 +93,10 @@ export async function generateAccessJWT(dataforms){
     // Creacion de la cookie con el token, expirara en 656 minutos
     cookieStore.set('jwtcookie', jwtoken, {maxAge: 39360});
     return(jwtoken);
+}
+
+// Validación de contraseña
+function validarPass(password) {
+    const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/;
+    return regex.test(password);
 }
