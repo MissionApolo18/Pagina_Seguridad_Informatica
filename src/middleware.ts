@@ -38,7 +38,7 @@ export function middleware(request: NextRequest){
     }
     else{
       url.pathname = '/';
-      return NextResponse.redirect(url);
+      return NextResponse.rewrite(url);
     }
   }
 
@@ -48,7 +48,7 @@ export function middleware(request: NextRequest){
     }
     else{
       url.pathname = '/';
-      return NextResponse.redirect(url);
+      return NextResponse.rewrite(url);
     }
   }
 
@@ -58,14 +58,14 @@ export function middleware(request: NextRequest){
     }
     else{
       url.pathname = '/signup';
-      return NextResponse.redirect(url);
+      return NextResponse.rewrite(url);
     }
   }
 
   if(url.pathname === '/signup'){
     if(rol === "admin"){
       url.pathname = '/signupadmin';
-      return NextResponse.redirect(url);
+      return NextResponse.rewrite(url);
     }
     else{
       return NextResponse.next();

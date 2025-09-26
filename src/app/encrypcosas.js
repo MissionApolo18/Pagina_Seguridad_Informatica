@@ -97,6 +97,6 @@ export async function generateAccessJWT(dataforms){
 
 // Validación de contraseña
 function validarPass(password) {
-    const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/;
+    const regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$/;
     return regex.test(password);
 }
